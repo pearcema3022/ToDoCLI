@@ -56,6 +56,7 @@ func (todos *Todos) delete(index int) error {
 
 }
 
+// toggle indxes in table
 func (todos *Todos) toggle(index int) error {
 	t := *todos
 
@@ -74,6 +75,7 @@ func (todos *Todos) toggle(index int) error {
 	return nil
 }
 
+// edit index by header then validate the header
 func (todos *Todos) edit(index int, title string) error {
 	t := *todos
 
@@ -86,6 +88,7 @@ func (todos *Todos) edit(index int, title string) error {
 	return nil
 }
 
+// show headers in the table
 func (todos *Todos) print() {
 	table := table.New(os.Stdout)
 	table.SetRowLines(false)
