@@ -80,7 +80,6 @@ func (todos *Todos) edit(index int, title string) error {
 	if err := t.validateIndex(index); err != nil {
 		return err
 	}
-	isCompleted := t[index].Completed
 
 	t[index].Title = title
 
@@ -102,9 +101,9 @@ func (todos *Todos) print() {
 			}
 		}
 
-		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123, CompletedAT))
+		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123), CompletedAT)
 	}
 
 	// print table
-	table.render
+	table.Render()
 }
