@@ -3,8 +3,11 @@ package main
 //main function which dictates what the table will do and the index's to be added
 func main() {
 	todos := Todos{}
-	todos.add("read documentation")
-	todos.add("add flags")
+	storage := NewStorage[Todos]("Todos.json")
+	storage.Load(&todos)
+	cmdFlags := NewCmdFlags()
+	cmdFlags.Execute(&todos)
 	todos.toggle(0)
-	todos.print()
+	storage.Save(todos)
+
 }
