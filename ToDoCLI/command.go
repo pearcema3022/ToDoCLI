@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// define flags for edit of items
 type CmdFlags struct {
 	Add    string
 	Del    int
@@ -31,7 +32,7 @@ func NewCmdFlags() *CmdFlags {
 	return &cf
 }
 
-// execute commands
+// Use switch to execute commands
 func (cf *CmdFlags) Execute(todos *Todos) {
 	switch {
 	case cf.List:
