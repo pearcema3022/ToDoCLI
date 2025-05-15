@@ -10,7 +10,7 @@ import (
 	"github.com/aquasecurity/table"
 )
 
-// create stuct for headers in cli
+// define headers of list table
 type Todo struct {
 	Title       string
 	Completed   bool
