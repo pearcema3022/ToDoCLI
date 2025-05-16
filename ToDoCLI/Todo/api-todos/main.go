@@ -13,7 +13,7 @@ type Todo struct {
 	Title string `json:"title"`
 }
 
-var Todos []Todo
+var todos []Todo
 
 func addTodoHandler(w http.ResponseWriter, r *http.Request) {
 	// Handler logic for adding a new TODO item
@@ -29,8 +29,8 @@ func addTodoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	newTodo.ID = len(Todos) + 1
-	Todos = append(Todos, newTodo)
+	newTodo.ID = len(todos) + 1
+	todos = append(todos, newTodo)
 
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(newTodo)
@@ -43,7 +43,7 @@ func listTodosHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	json.NewEncoder(w).Encode(Todos)
+	json.NewEncoder(w).Encode(todos)
 }
 
 func deleteTodoHandler(w http.ResponseWriter, r *http.Request) {
@@ -59,9 +59,9 @@ func deleteTodoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for i, todo := range Todos {
+	for i, todo := range todos {
 		if todo.ID == todoID {
-			Todos = append(Todos[:i], Todos[i+1:]...)
+			todos = append(todos[:i], todos[i+1:]...)
 			w.WriteHeader(http.StatusOK)
 			return
 		}
