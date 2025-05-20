@@ -1,32 +1,26 @@
 [
     {
         "Title": "read documentation",
-        "Completed": false,
-        "CreatedAt": "2025-05-13T17:56:54.5178159+01:00",
-        "CompletedAt": "2025-05-16T11:48:54.521159+01:00"
+        "Completed": true
     },
     {
         "Title": "add flags",
-        "Completed": true,
-        "CreatedAt": "2025-05-13T17:56:54.5178159+01:00",
-        "CompletedAt": "2025-05-13T20:19:26.5180868+01:00"
+        "Completed": true
     },
     {
         "Title": "start log/slog",
-        "Completed": false,
-        "CreatedAt": "2025-05-13T20:19:14.8736336+01:00",
-        "CompletedAt": null
+        "Completed": false
     },
     {
         "Title": "add trace ID",
-        "Completed": false,
-        "CreatedAt": "2025-05-13T20:20:12.1405935+01:00",
-        "CompletedAt": null
+        "Completed": false
     },
     {
         "Title": "Create API",
-        "Completed": false,
-        "CreatedAt": "2025-05-13T20:20:24.8578733+01:00",
-        "CompletedAt": null
+        "Completed": false
+    },
+    {
+        "Title": "quickly",
+        "Completed": false
     }
 ]
