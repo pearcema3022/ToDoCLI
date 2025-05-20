@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -10,16 +11,12 @@ func main() {
 	// Define CLI flags
 	indexFlag := flag.Int("index", -1, "Index to insert the task at")
 	taskFlag := flag.String("task", "", "Task to add")
-	deleteIndex := flag.Int("delete", -1, "Index to be deleted")
 	flag.Parse()
-
-	//check to see if delete flag is available
-	if *deleteIndex == -1 {
-		fmt.Println("you need to specify task to delete")
-	}
 
 	// task list
 	tasks := []string{"Task 1", "Task 2", "Task 3"}
+
+	//split string
 
 	// Validate inputs
 	if *indexFlag < 0 || *indexFlag > len(tasks) {
@@ -40,4 +37,28 @@ func main() {
 	for i, task := range tasks {
 		fmt.Printf("%d: %s\n", i, task)
 	}
+
+	// Convert the list to JSON format
+	jsonData, err := json.MarshalIndent(taskFlag, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshalling JSON:", err)
+		return
+	}
+
+	// Create or open a file to store the JSON data
+	file, err := os.Create("task.json")
+	if err != nil {
+		fmt.Println("Error creating file:", err)
+		return
+	}
+	defer file.Close()
+
+	// Write the JSON data to the file
+	_, err = file.Write(jsonData)
+	if err != nil {
+		fmt.Println("Error writing to file:", err)
+		return
+	}
+
+	fmt.Println("List successfully written to task.json")
 }
