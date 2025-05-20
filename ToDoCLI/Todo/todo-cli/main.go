@@ -20,6 +20,7 @@ func main() {
 		fmt.Println("Error: Invalid index. Please provide a valid index.")
 		os.Exit(1)
 	}
+	// error output if you do not run correct request
 	if *taskFlag == "" {
 		fmt.Println("Error: Task cannot be empty.")
 		os.Exit(1)
