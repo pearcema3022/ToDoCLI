@@ -10,7 +10,13 @@ func main() {
 	// Define CLI flags
 	indexFlag := flag.Int("index", -1, "Index to insert the task at")
 	taskFlag := flag.String("task", "", "Task to add")
+	deleteIndex := flag.Int("delete", -1, "Index to be deleted")
 	flag.Parse()
+
+	//check to see if delete flag is available
+	if *deleteIndex == -1 {
+		fmt.Println("you need to specify task to delete")
+	}
 
 	// task list
 	tasks := []string{"Task 1", "Task 2", "Task 3"}
