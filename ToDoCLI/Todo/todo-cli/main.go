@@ -12,7 +12,7 @@ func main() {
 	taskFlag := flag.String("task", "", "Task to add")
 	flag.Parse()
 
-	// Example task list
+	// task list
 	tasks := []string{"Task 1", "Task 2", "Task 3"}
 
 	// Validate inputs
@@ -25,10 +25,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Insert task at the specified index
+	// Allow user to add flag and specified index
 	tasks = append(tasks[:*indexFlag], append([]string{*taskFlag}, tasks[*indexFlag:]...)...)
 
-	// Print updated task list
+	// Print updated task list.
 	fmt.Println("Updated Task List:")
 	for i, task := range tasks {
 		fmt.Printf("%d: %s\n", i, task)
